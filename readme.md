@@ -12,7 +12,7 @@ __POST /transactions:__ A rota deve receber title, value, type, e category dentr
 Dica: Para a categoria, você deve criar uma nova tabela, que terá os campos id, title, created_at, updated_at.
 
 Dica 2: Antes de criar uma nova categoria, sempre verifique se já existe uma categoria com o mesmo título. Caso ela exista, use o id já existente no banco de dados.
-
+```
 {
   "id": "uuid",
   "title": "Salário",
@@ -20,7 +20,9 @@ Dica 2: Antes de criar uma nova categoria, sempre verifique se já existe uma ca
   "type": "income",
   "category": "Alimentação"
 }
+```
 __GET /transactions:__ Essa rota deve retornar uma listagem com todas as transações que você cadastrou até agora, junto com o valor da soma de entradas, retiradas e total de crédito. Essa rota deve retornar um objeto o seguinte formato:
+```
 {
   "transactions": [
     {
@@ -86,6 +88,7 @@ __GET /transactions:__ Essa rota deve retornar uma listagem com todas as transa�
     "total": 800
   }
 }
+```
 Dica: Dentro de balance, o income é a soma de todos os valores das transações com type income. O outcome é a soma de todos os valores das transações com type outcome, e o total é o valor de income - outcome.
 
 Dica 2: Para fazer a soma dos valores, você pode usar a função reduce para agrupar as transações pela propriedade type, assim você irá conseguir somar todos os valores com facilidade e obter o retorno do balance.
